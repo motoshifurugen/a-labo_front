@@ -40,6 +40,7 @@
                             class="person indigo darken-3"
                             v-bind="attrs"
                             v-on="on"
+                            @click="RadarChart(person.score)"
                           >
                             {{ person.name }}
                           </v-btn>
@@ -50,15 +51,23 @@
                               <v-img
                                 class="white--text align-end"
                                 height="200px"
-                                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                                :src="person.img"
                               >
-                                <v-card-title>{{ person.name }}</v-card-title>
+                                <v-card-title class="card-title">{{ person.name }}</v-card-title>
                               </v-img>
                               <v-card-subtitle class="pb-0">
                                 大事にしている価値観
                               </v-card-subtitle>
-                              <v-card-text class="text--primary">
-                                <span v-for="value in person.values" :key="value.id">{{ value.name }} </span>
+                              <v-card-text class="values">
+                                <v-btn
+                                  v-for="value in person.values"
+                                  :key="value.id"
+                                  class="value indigo--text"
+                                  outlined
+                                  rounded
+                                >
+                                  <b>{{ value.name }}</b>
+                                </v-btn>
                               </v-card-text>
                             </v-col>
                             <v-col cols="12" md="6">
@@ -70,6 +79,12 @@
                               >
                                 {{ type.typeName }}
                               </v-btn>
+                              <div class="chart">
+                                <radar-chart :chartData="chartData" :options="options"></radar-chart>
+                              </div>
+                              <div class="seet-link">
+                                <a href="https://1drv.ms/x/s!Anb9QOKZYucubhft7iWaLEctTxY" target="_blank">タイプ別診断シート</a>
+                              </div>
                             </v-col>
                           </v-row>
                         </v-card>
@@ -126,15 +141,40 @@
   margin: 1em;
 }
 .personType {
-  pointer-events: none
+  pointer-events: none;
 }
 .personCard {
   margin: 1em;
 }
+.chart {
+  margin: 0 auto;
+  @media screen and (max-width: 960px) {
+    max-width: 70%;
+  }
+}
+.seet-link {
+  text-align: center;
+  margin: 1em;
+}
+.values {
+  margin: 1em 0;
+}
+.value {
+  pointer-events: none;
+  margin: 0.3em;
+}
+.card-title {
+  font-size: 1.8em;
+}
 </style>
 
 <script>
+import RadarChart from '../components/RadarChart.vue'
+
 export default {
+  components: {
+    RadarChart,
+  },
   data(){
     return{
       dialog: false,
@@ -155,26 +195,32 @@ export default {
               name: 'ののまゆ',
               type: 'プロモーター',
               values: [
-                {id: 1, name: '個性'}
+                {id: 1, name: '個性'},
+                {id: 2, name: '多様性'},
+                {id: 3, name: '遊び心'},
+                {id: 4, name: '友情'},
+                {id: 5, name: '挑戦'},
               ],
               score: [
-                8, 11, 8, 4
-              ]
+               9, 10, 8, 7
+              ],
+              img: "/img/sample01.jpeg",
             },
             {
               id: 2,
               name: '俺',
               type: 'プロモーター',
               values: [
-                {id: 2, name: 'ビジョン'},
-                {id: 3, name: '利他的'},
-                {id: 4, name: '遊び心'},
-                {id: 5, name: 'やり抜く力'},
-                {id: 6, name: '行動'},
+                {id: 6, name: 'ビジョン'},
+                {id: 7, name: '利他的'},
+                {id: 8, name: '遊び心'},
+                {id: 9, name: 'やり抜く力'},
+                {id: 10, name: '行動'},
               ],
               score: [
                 8, 11, 8, 4
-              ]
+              ],
+              img: "/img/sample_furugen.jpg",
             },
           ]
         },
@@ -188,22 +234,32 @@ export default {
               name: 'ひめか',
               type: 'アナライザー',
               values: [
-                {id: 1, name: '個性'}
+                {id: 11, name: '忍耐力'},
+                {id: 12, name: '思考力'},
+                {id: 13, name: '全力'},
+                {id: 14, name: '貢献'},
+                {id: 15, name: '信頼'},
               ],
               score: [
-                8, 11, 8, 4
-              ]
+                8, 5, 6, 9
+              ],
+              img: "/img/sample01.jpeg",
             },
             {
               id: 4,
               name: 'しょうま',
               type: 'アナライザー',
               values: [
-                {id: 1, name: '個性'}
+                {id: 16, name: 'ビジョン'},
+                {id: 17, name: '個性'},
+                {id: 18, name: '遊び心'},
+                {id: 19, name: '行動'},
+                {id: 20, name: '支援'},
               ],
               score: [
-                8, 11, 8, 4
-              ]
+                8, 6, 8, 10
+              ],
+              img: "/img/sample01.jpeg",
             },
           ]
         },
@@ -217,38 +273,82 @@ export default {
               name: 'あみ',
               type: 'サポーター',
               values: [
-                {id: 1, name: '個性'}
+                {id: 21, name: '感謝'},
+                {id: 22, name: '協力'},
+                {id: 23, name: '忍耐力'},
+                {id: 24, name: '幸せ'},
+                {id: 25, name: '家族'},
               ],
               score: [
-                8, 11, 8, 4
-              ]
+                5, 6, 7, 6
+              ],
+              img: "/img/sample01.jpeg",
             },
             {
               id: 6,
               name: 'とも',
               type: 'サポーター',
               values: [
-                {id: 1, name: '個性'}
+                {id: 26, name: '貢献'},
+                {id: 27, name: '幸せ'},
+                {id: 28, name: '行動'},
+                {id: 29, name: '優しさ'},
               ],
               score: [
-                8, 11, 8, 4
-              ]
+                4, 4, 12, 6
+              ],
+              img: "/img/sample01.jpeg",
             },
             {
               id: 7,
               name: 'なつこ',
               type: 'サポーター',
               values: [
-                {id: 1, name: '個性'}
+                {id: 31, name: '力を与える'},
+                {id: 32, name: '貢献'},
+                {id: 33, name: '励ます'},
+                {id: 34, name: '発見'},
+                {id: 35, name: '勇気'},
               ],
               score: [
-                8, 11, 8, 4
-              ]
+                4, 7, 8, 5
+              ],
+              img: "/img/sample01.jpeg",
             },
           ]
         }
-      ]
+      ],
+      chartData: null,
+      options: {
+        scale: {
+          pointLabels: {
+            fontSize: 15,//レーダーチャートのラベルを変更
+          },
+        },
+        title: {
+          display: false,
+        },
+      }
     }
   },
+  created () {
+    const score = []
+    this.RadarChart(score)
+  },
+  methods: {
+    RadarChart (score) {
+      this.chartData = {
+        labels: ["Controller", "Promoter", "Supporter","Analyzer"],
+        datasets: [
+          {
+            backgroundColor: 'rgb(255,50,101,0.6)',
+            borderWidth: 2,
+            label: '2021.5',
+            data: score
+          }
+        ],
+      }
+    }
+  }
 };
 </script>

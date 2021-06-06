@@ -25,7 +25,7 @@ export default new Router({
         },
         {
             path: '/advisor',
-            name: 'hero',
+            name: 'advisor',
             component: () => import('./views/Advisor.vue')
         },
         {

@@ -3,9 +3,9 @@
     <v-app-bar color="primary" dark app>
       <v-toolbar-title>らしさ探求LABO</v-toolbar-title>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <router-view />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
