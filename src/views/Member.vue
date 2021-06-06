@@ -111,7 +111,7 @@
   height: 100%;
 }
 .home-member__content {
-  background: url("../assets/images/game.gif");
+  background: url("../assets/images/game02.gif");
   background-size: cover;
   background-position: center center;
   width: 100%;

@@ -18,7 +18,7 @@
               v-bind="attrs"
               v-on="on"
             >
-              <b>入室する</b>
+              <b>ログイン</b>
             </v-btn>
           </template>
           <v-card>
@@ -57,7 +57,7 @@
                   logIn();
                 "
               >
-                入室する
+                ログイン
               </v-btn>
             </v-card-actions>
           </v-card>
