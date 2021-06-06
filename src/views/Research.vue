@@ -1,7 +1,7 @@
 <template>
   <div class="research">
-    <section class="home-hero">
-      <v-container fluid class="home-hero__content">
+    <section class="home-member">
+      <v-container fluid class="home-member__content">
         <v-item-group multiple>
         <v-row>
           <v-col
@@ -107,10 +107,10 @@
 .research {
   height: 100%;
 }
-.home-hero {
+.home-member {
   height: 100%;
 }
-.home-hero__content {
+.home-member__content {
   background: url("../assets/images/game.gif");
   background-size: cover;
   background-position: center center;

@@ -19,9 +19,9 @@ export default new Router({
             component: () => import('./views/Top.vue')
         },
         {
-            path: '/hero',
-            name: 'hero',
-            component: () => import('./views/Hero.vue')
+            path: '/member',
+            name: 'member',
+            component: () => import('./views/Member.vue')
         },
         {
             path: '/advisor',

@@ -1,12 +1,17 @@
 <template>
   <div class="top">
-    <section class="home-hero">
-      <v-container fluid fill-height class="home-hero__content">
+    <section class="home-member">
+      <v-container fluid fill-height class="home-member__content">
+        <v-row>
+          <v-col class="home-member__content-text tile">
+            <p>自分らしさ探求室</p>
+          </v-col>
+        </v-row>
         <v-row class="room-row">
           <v-col
             cols="12"
             md="4"
-            class="home-hero__content-text"
+            class="home-member__content-text"
           >
             <v-item>
               <v-card
@@ -22,23 +27,23 @@
           <v-col
             cols="12"
             md="4"
-            class="home-hero__content-text"
+            class="home-member__content-text"
           >
             <v-item>
               <v-card
                 color="rgb(229,229,229, 0.8)"
                 class="align-center room"
                 height="150"
-                to="/hero"
+                to="/member"
               >
-                <p><v-icon color="black">mdi-account-star-outline</v-icon> Hero</p>
+                <p><v-icon color="black">mdi-account-star-outline</v-icon> Member</p>
               </v-card>
             </v-item>
           </v-col>
           <v-col
             cols="12"
             md="4"
-            class="home-hero__content-text"
+            class="home-member__content-text"
           >
             <v-item>
               <v-card
@@ -51,7 +56,7 @@
               </v-card>
             </v-item>
           </v-col>
-          <v-col class="home-hero__content-text message">
+          <v-col class="home-member__content-text message">
             <p>Welcome to A-LABO.</p>
             <p>Make yourself at home.</p>
           </v-col>
@@ -66,10 +71,10 @@
 .top {
   height: 100%;
 }
-.home-hero {
+.home-member {
   height: 100%;
 }
-.home-hero__content {
+.home-member__content {
   background: url("../assets/images/game.gif");
   background-size: cover;
   background-position: center center;
@@ -84,10 +89,10 @@
   }
 }
 .room {
-  margin: 0.5em 2.5em;
+  margin: 0 2.5em;
   padding: 2em;
   @media screen and (max-width: 1350px) {
-    margin: 0.5em;
+    margin: 0 0.5em;
   }
 }
 .room-row {
@@ -103,5 +108,10 @@
     margin-top: 0;
     font-size: 28px;
   }
+}
+.tile {
+  font-size: 3em;
+  padding: 0;
+  margin-bottom: -2em;
 }
 </style>

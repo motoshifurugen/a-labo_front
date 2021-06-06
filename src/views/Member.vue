@@ -1,10 +1,10 @@
 <template>
-  <div class="hero">
-    <section class="home-hero">
-      <v-container fluid class="home-hero__content">
+  <div class="member">
+    <section class="home-member">
+      <v-container fluid class="home-member__content">
         <v-item-group multiple>
           <v-row>
-            <v-col class="home-hero__content-text tile">
+            <v-col class="home-member__content-text tile">
             <p>らしさ探求LABO 第5回 研究生</p>
           </v-col>
         </v-row>
@@ -20,7 +20,7 @@
                 :color="active ? type.color : 'rgb(255,255,204, 0.6)'"
                 class="d-flex align-center type"
                 dark
-                height="300"
+                height="250"
                 @click="toggle"
               >
                 <v-scroll-y-transition>
@@ -99,17 +99,18 @@
         </v-item-group>
       </v-container>
     </section>
+    <v-btn absolute bottom right x-large class="primary--text" to="/top"><b>≪ 探求室TOP</b></v-btn>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.hero {
+.member {
   height: 100%;
 }
-.home-hero {
+.home-member {
   height: 100%;
 }
-.home-hero__content {
+.home-member__content {
   background: url("../assets/images/game.gif");
   background-size: cover;
   background-position: center center;
@@ -144,7 +145,10 @@
   pointer-events: none;
 }
 .personCard {
-  margin: 1em;
+  margin: 0.3em;
+  @media screen and (max-width: 960px) {
+    margin: 1em;
+  }
 }
 .chart {
   margin: 0 auto;
