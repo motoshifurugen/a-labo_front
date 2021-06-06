@@ -1,8 +1,8 @@
 <template>
   <div class="research">
-    研究内容
-    <v-item-group multiple>
-      <v-container>
+    <section class="home-hero">
+      <v-container fluid class="home-hero__content">
+        <v-item-group multiple>
         <v-row>
           <v-col
             cols="12"
@@ -11,7 +11,7 @@
             <v-item v-slot="{ active, toggle }">
               <v-card
                 :color="active ? 'primary' : ''"
-                class="d-flex align-center"
+                class="d-flex align-center type controller"
                 dark
                 height="350"
                 @click="toggle"
@@ -34,7 +34,7 @@
             <v-item v-slot="{ active, toggle }">
               <v-card
                 :color="active ? 'primary' : ''"
-                class="d-flex align-center"
+                class="d-flex align-center type promoter"
                 dark
                 height="350"
                 @click="toggle"
@@ -57,7 +57,7 @@
             <v-item v-slot="{ active, toggle }">
               <v-card
                 :color="active ? 'primary' : ''"
-                class="d-flex align-center"
+                class="d-flex align-center type analyzer"
                 dark
                 height="350"
                 @click="toggle"
@@ -80,7 +80,7 @@
             <v-item v-slot="{ active, toggle }">
               <v-card
                 :color="active ? 'primary' : ''"
-                class="d-flex align-center"
+                class="d-flex align-center type supporter"
                 dark
                 height="350"
                 @click="toggle"
@@ -97,7 +97,36 @@
             </v-item>
           </v-col>
         </v-row>
+        </v-item-group>
       </v-container>
-    </v-item-group>
+    </section>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.research {
+  height: 100%;
+}
+.home-hero {
+  height: 100%;
+}
+.home-hero__content {
+  background: url("../assets/images/game.gif");
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+
+  &-text {
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+.type {
+  @media screen and (max-width: 960px) {
+    padding: 0;
+  }
+}
+</style>
