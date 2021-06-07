@@ -20,7 +20,7 @@
                 :color="active ? type.color : 'rgb(255,255,204, 0.6)'"
                 class="d-flex align-center type"
                 dark
-                height="250"
+                height="300"
                 @click="toggle"
               >
                 <v-scroll-y-transition>
@@ -31,7 +31,7 @@
                     <p>{{ type.typeName }}</p>
                     <span v-for="person in type.member" :key="person.id">
                       <v-dialog
-                        width="800"
+                        width="900"
                         :retain-focus='false'
                       >
                         <template v-slot:activator="{ on, attrs }">
@@ -50,7 +50,7 @@
                             <v-col cols="12" md="6">
                               <v-img
                                 class="white--text align-end"
-                                height="200px"
+                                height="220px"
                                 :src="person.img"
                               >
                                 <v-card-title class="card-title">{{ person.name }}</v-card-title>
@@ -168,7 +168,7 @@
   margin: 0.3em;
 }
 .card-title {
-  font-size: 1.8em;
+  font-size: 1.9em;
 }
 </style>
 

@@ -4,7 +4,7 @@
       <v-container fluid fill-height class="home-member__content">
         <v-row>
           <v-col class="home-member__content-text tile">
-            <p>自分らしさ探求室</p>
+            <p><span class="under">自分らしさ探求室</span></p>
           </v-col>
         </v-row>
         <v-row class="room-row">
@@ -17,7 +17,7 @@
               <v-card
                 color="rgb(229,229,229, 0.8)"
                 class="align-center room"
-                height="150"
+                height="170"
                 to="/research"
               >
                 <p><v-icon color="black">mdi-feature-search-outline</v-icon> Research</p>
@@ -33,7 +33,7 @@
               <v-card
                 color="rgb(229,229,229, 0.8)"
                 class="align-center room"
-                height="150"
+                height="170"
                 to="/member"
               >
                 <p><v-icon color="black">mdi-account-star-outline</v-icon> Member</p>
@@ -49,7 +49,7 @@
               <v-card
                 color="rgb(229,229,229, 0.8)"
                 class="align-center room"
-                height="150"
+                height="170"
                 to="/advisor"
               >
                 <p><v-icon color="black">mdi-head-heart-outline</v-icon> Advisor</p>
@@ -57,8 +57,8 @@
             </v-item>
           </v-col>
           <v-col class="home-member__content-text message">
-            <p>Welcome to A-LABO.</p>
-            <p>Make yourself at home.</p>
+            <p>Welcome! Make Yourself At Home.</p>
+            <p>Click <v-btn large class="personType primary--text alabo-btn" href="http://www.central-engineering.jp/a-labo/" rounded><v-img max-width="35px" src="../assets/images/a-labo.jpeg"></v-img>A-LABO</v-btn> For More Info!</p>
           </v-col>
         </v-row>
       </v-container>
@@ -110,8 +110,18 @@
   }
 }
 .tile {
-  font-size: 3em;
+  font-size: 3.5em;
   padding: 0;
-  margin-bottom: -2em;
+  margin-bottom: -20px;
+}
+.tile p:first-letter {
+  font-size: 1.5em;
+  color: #42A5F5;
+}
+.under {
+  border-bottom: solid 10px white;
+}
+.alabo-btn {
+  font-size: 0.7em;
 }
 </style>
