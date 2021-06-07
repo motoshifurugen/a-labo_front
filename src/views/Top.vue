@@ -62,7 +62,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-btn absolute bottom right x-large class="primary--text" to="/"><b>ログアウト</b></v-btn>
+      <v-btn absolute bottom right x-large class="primary--text" to="/"><b>退室する</b></v-btn>
     </section>
   </div>
 </template>
