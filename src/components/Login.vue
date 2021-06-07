@@ -9,8 +9,20 @@
         <v-img
           src="../assets/images/a-labo.jpeg"
         ></v-img>
+        <template>
+            <v-btn
+              x-large
+              class="ma-2"
+              color="primary"
+              @click="
+                logIn();
+              "
+            >
+              <b>入室する</b>
+            </v-btn>
+          </template>
         <!-- <v-dialog v-model="dialog" width="500"> -->
-          <template v-slot:activator="{ on, attrs }">
+          <!-- <template v-slot:activator="{ on, attrs }">
             <v-btn
               x-large
               class="ma-2"
@@ -23,7 +35,7 @@
             >
               <b>入室する</b>
             </v-btn>
-          </template>
+          </template> -->
           <!-- <v-card>
             <v-card-title class="headline primary white--text"><b>研究者ログイン</b></v-card-title>
             <v-card-text>
