@@ -58,7 +58,7 @@
           </v-col>
           <v-col class="home-member__content-text message">
             <p>Welcome! Make Yourself At Home.</p>
-            <p>Click <v-btn large class="personType primary--text alabo-btn" href="http://www.central-engineering.jp/a-labo/" rounded><v-img max-width="35px" src="../assets/images/a-labo.jpeg"></v-img>A-LABO</v-btn> For More Info!</p>
+            <p>Click <v-btn large class="personType primary--text alabo-btn" href="http://www.central-engineering.jp/a-labo/" target="_blank" rounded><v-img max-width="35px" src="../assets/images/a-labo.jpeg"></v-img>A-LABO</v-btn> For More Info!</p>
           </v-col>
         </v-row>
       </v-container>
