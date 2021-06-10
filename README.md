@@ -1,5 +1,7 @@
 # alabo
 
+herokuURL：https://a-labo.herokuapp.com/
+
 ## Project setup
 ```
 yarn install
