@@ -5,7 +5,7 @@
         <v-item-group multiple>
           <v-row>
             <v-col class="home-member__content-text tile">
-            <p>らしさ探求LABO 第5回 研究生</p>
+            <p>らしさ探求LABO  10期生</p>
           </v-col>
         </v-row>
         <v-row class="type-row">
